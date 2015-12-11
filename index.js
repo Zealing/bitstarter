@@ -12,7 +12,11 @@ fs.readFileSync("index.html", function(err) {
 });
 
 app.get('/', function(request, response) {
-  response.send(fs)
+    var fs = require('fs');
+    var content = fs.readFileSync('index.html','utf8');
+
+
+    response.send(content)
 })
 
 app.listen(app.get('port'), function() {
